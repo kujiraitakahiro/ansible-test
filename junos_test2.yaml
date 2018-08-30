@@ -1,0 +1,16 @@
+---
+- hosts: junos
+  gather_facts: no
+  connection: netconf
+
+  tasks:
+    - name: check status
+      junos_command:
+        commands:
+          - show system uptime
+      register: result
+
+    - name: save status to file
+      copy:
+        content: "{{ result.stdout[0] }}"
+        dest: check_uptime_testSRX.txt

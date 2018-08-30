@@ -1,0 +1,7 @@
+[junos]
+192.168.10.40
+
+[junos:vars]
+ansible_network_os=junos
+ansible_user=lab
+ansible_ssh_pass=lab123
